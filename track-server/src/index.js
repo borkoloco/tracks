@@ -1,5 +1,6 @@
 require("./models/User");
 require("./models/Track");
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -12,12 +13,11 @@ app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
 app.use((req, res, next) => {
-  console.log("Nueva solicitud recibida"); // Verifica que cualquier solicitud llegue al servidor
+  console.log("Nueva solicitud recibida");
   next();
 });
 
-const mongoUri =
-  "mongodb+srv://borkoloco:Retopu77@cluster0.dfkogkg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoUri = process.env.MONGO_URL;
 
 mongoose.connect(mongoUri);
 

@@ -14,6 +14,7 @@ import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
 import { Provider as TrackProvider } from "./src/context/TrackContext";
 import { FontAwesome } from "@expo/vector-icons";
+require("dotenv").config();
 
 const trackListFlow = createStackNavigator({
   TrackList: TrackListScreen,
